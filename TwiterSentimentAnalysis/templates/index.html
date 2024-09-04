@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict Sentiment</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+        }
+        .container {
+            text-align: center;
+            background: #fff;
+            padding: 60px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            border: 2px solid #4caf50;
+        }
+        h1 {
+            color: #4caf50;
+            margin-bottom: 20px;
+        }
+        .input-field {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .button {
+            padding: 15px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+            background-color: #4caf50;
+            color: white;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Predict Sentiment</h1>
+        <form method="POST">
+            <input type="text" class="input-field" name="text" placeholder="Enter text" required>
+            <br>
+            <button class="button" type="submit">Predict</button>
+        </form>
+        {% if sentiment %}
+        <div class="result">
+            <strong>Predicted Sentiment:</strong> {{ sentiment }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
